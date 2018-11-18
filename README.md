@@ -24,7 +24,7 @@ When we have @Autowired annotation on a variable, Spring framework looks for it 
 -	If we have more than one implementation of an interface **and** have @Component on them:
 	-	use **@Primary** annotation to use one of the dependencies. 
 	-	put the name of the created instance as the name of one of the classed implements that interface.
-``` InterfaceClass firstImplementdClass ```
+		-``` InterfaceClass firstImplementdClass ```
 	-	use **@Qualifier("firstImpl")**  in two places:
 		-	In the class that implements the interface.
 		-	Above the instantiation of the interface. Such as follows: 
