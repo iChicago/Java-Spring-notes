@@ -24,14 +24,14 @@ When we have @Autowired annotation on a variable, Spring framework looks for it 
 -	If we have more than one implementation of an interface **and** have @Component on them:
 	-	use **@Primary** annotation to use one of the dependencies. 
 	-	put the name of the created instance as the name of one of the classed implements that interface.
-		``` InterfaceClass firstImplementdClass ```
+``` InterfaceClass firstImplementdClass ```
 	-	use **@Qualifier("firstImpl")**  in two places:
 		-	In the class that implements the interface.
 		-	Above the instantiation of the interface. Such as follows: 
 ```java
-		@Autowired
-		@Qualifier("firstImpl")
-		InterfaceClass interfaceInstance
+@Autowired
+@Qualifier("firstImpl")
+InterfaceClass interfaceInstance
 ```
 **note:** If you are always using one implementation, it is better to use **@Primary**. However, if you are using different implementations interchangeably, use the name as the second point above.
 
@@ -67,10 +67,9 @@ LOGGER.info("{}", AA.getB());
 - A (prototype) B (singleton) => A different, B same
 - A (singleton) B (prototype) =>  **same adresses**
 	- this issue can be solved by adding proxy to the prototype such as follows:
-	```java
-	@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE,  
-        proxyMode = ScopedProxyMode.TARGET_CLASS)
-	```
+```java
+@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE, proxyMode = ScopedProxyMode.TARGET_CLASS)
+```
 ## External Componenets 
 If you want to use componenets that are not in the same package, you need to use **@ComponenetScan(com.example.nasser)** annotation and provide it with the package.
 
