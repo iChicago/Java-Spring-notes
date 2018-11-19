@@ -6,7 +6,9 @@ Spring framework is a dependency injection framework
 
 ## Annotations
 **@Component** annotation will tell Spring framework to create instances of the annotated class for you.
+
 **@Autowired** annotation will tell String framework to search among the components to find the dependency for you.
+
 **@Primary** To choose one between **dependency** components 
 
 ## Terminology
