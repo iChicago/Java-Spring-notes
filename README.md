@@ -26,7 +26,7 @@ When we have @Autowired annotation on a variable, Spring framework looks for it 
 -	If we have more than one implementation of an interface **and** have @Component on them:
 	-	use **@Primary** annotation to use one of the dependencies. 
 	-	put the name of the created instance as the name of one of the classed implements that interface.
-		-``` InterfaceClass firstImplementdClass ```
+		+ ``` InterfaceClass firstImplementdClass ```
 	-	use **@Qualifier("firstImpl")**  in two places:
 		-	In the class that implements the interface.
 		-	Above the instantiation of the interface. Such as follows: 
@@ -35,7 +35,7 @@ When we have @Autowired annotation on a variable, Spring framework looks for it 
 @Qualifier("firstImpl")
 InterfaceClass interfaceInstance
 ```
-**note:** If you are always using one implementation, it is better to use **@Primary**. However, if you are using different implementations interchangeably, use the name as the second point above.
+**Note:** If you are always using one implementation, it is better to use **@Primary**. However, if you are using different implementations interchangeably, use the name as the second point above.
 
 ## Scope of a bean
 - **singleton** - One instance per Spring Context. 
@@ -50,7 +50,7 @@ use **SCOPE_SINGLETON** if you want only one instance. For singleton, you don't 
 - **session** - One bean per HTTP session
 ## How to make logs?
 ```java
-private static Logger LOGGER = LoggerFactory.getLogger(SpringIn5StepsBasicApplication.class);
+private static Logger LOGGER = LoggerFactory.getLogger(yourApplication.class);
 LOGGER.info("Hello there!");  
 ```
 ## Singleton vs Prototype
