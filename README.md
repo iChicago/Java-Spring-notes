@@ -11,6 +11,24 @@ Spring framework is a dependency injection framework
 
 **@Primary** To choose one between **dependency** components 
 
+**@PreDestroy** 
+
+**@PostConstruct**
+
+**@ComponenetScan(com.example.nasser)** 
+
+**@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)**
+
+**@Qualifier("firstImpl")** 
+
+**@Primary**
+
+**@Controller**
+
+**@Service**
+
+**@Repository**
+
 ## Terminology
 -   **Bean** is the different objects that are managed by Spring framework (the ones with @Component annotation).
 -   **Autowiring** is the process where Spring identifies the dependence (the ones with @Autowired annotation), identifies the matches for the dependencies and populates them.
