@@ -23,11 +23,11 @@ Spring framework is a dependency injection framework
 
 **@Primary**
 
-**@Controller**
+**@Controller** controller in MVC patteren
 
-**@Service**
+**@Service** business service facade
 
-**@Repository**
+**@Repository** encapsulates storage, retrieval, and search behaviour (typically from a relational database)
 
 ## Terminology
 -   **Bean** is the different objects that are managed by Spring framework (the ones with @Component annotation).
