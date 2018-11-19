@@ -34,7 +34,11 @@ ApplicationContext applicationContext =
 ```
 * with
 ```java
-ApplicationContext applicationContext =
+AnnotationConfigApplicationContext applicationContext =
       new AnnotationConfigApplicationContext(yourApplication.class);
 ```
 * Spring boot was scanning for all required objects, now, we are not using spring-boot, so, we have to add it explicitly by using **@ComponentScan("com.example.nasser")**
+* You need to colse the application context by using 
+```java
+applicationContext.close();
+```
