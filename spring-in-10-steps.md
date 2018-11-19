@@ -32,3 +32,29 @@ spring Boot looks at:
 
 Based on these, Spring Boot provides basic configuration needed to configure the application with these frameworks. This is called **Auto Configuration**.
 
+Starters are a set of convenient dependency descriptors that you can include in your application. You get a one-stop-shop for all the Spring and related technology that you need, without having to hunt through sample code and copy paste loads of dependency descriptors. For example, if you want to get started using Spring and JPA for database access, just include the spring-boot-starter-data-jpa dependency in your project, and you are good to go.
+
+
+### Dependency for Spring Boot Starter Web
+Dependencies can be classified into:
+* Spring - core, beans, context, aop
+* Web MVC - (Spring MVC)
+* Jackson - for JSON Binding
+* Validation - Hibernate Validator, Validation API
+* Embedded Servlet Container - Tomcat
+* Logging - logback, slf4j
+
+Any typical web application would use all these dependencies. Spring Boot Starter Web comes pre packaged with these. As a developer, I would not need to worry about either these dependencies or their compatible versions.
+
+### Spring Boot Starter Project Options
+As we see from Spring Boot Starter Web, starter projects help us in quickly getting started with developing specific types of applications.
+
+* spring-boot-starter-web-services - SOAP Web Services
+* spring-boot-starter-web - Web & RESTful applications
+* spring-boot-starter-test - Unit testing and Integration Testing
+* spring-boot-starter-jdbc - Traditional JDBC
+* spring-boot-starter-hateoas - Add HATEOAS features to your services
+* spring-boot-starter-security - Authentication and Authorization using Spring Security
+* spring-boot-starter-data-jpa - Spring Data JPA with Hibernate
+* spring-boot-starter-cache - Enabling Spring Framework’s caching support
+* spring-boot-starter-data-rest - Expose Simple REST Services using Spring Data REST
