@@ -48,29 +48,39 @@ InterfaceClass interfaceInstance
 use **SCOPE_SINGLETON** if you want only one instance. For singleton, you don't need to include the previous line because **singleton** is default. 
 - **request** - One bean per HTTP request
 - **session** - One bean per HTTP session
+
 ## How to make logs?
+There are three types of logs:
+* info
+* debug
+* error
+
 ```java
 private static Logger LOGGER = LoggerFactory.getLogger(yourApplication.class);
 LOGGER.info("Hello there!");  
 ```
 ## Singleton vs Prototype
 B is a dependancy of A. When creating 2 instances of A&B
+
 ```java
-PersonDAO A= applicationContext.getBean(A.class);  
-PersonDAO AA= applicationContext.getBean(A.class);  
+A   a= applicationContext.getBean(A.class);  
+A  aa= applicationContext.getBean(A.class);  
   
-LOGGER.info("{}", A);  
-LOGGER.info("{}", A.getB());  
-LOGGER.info("{}", AA);  
-LOGGER.info("{}", AA.getB());
+LOGGER.info("{}", a);  
+LOGGER.info("{}", a.getB());  
+LOGGER.info("{}", aa);  
+LOGGER.info("{}", aa.getB());
 ```
-- A (singleton) B (singleton) => same adresses
-- A (prototype) B (prototype) => different adresses
-- A (prototype) B (singleton) => A different, B same
-- A (singleton) B (prototype) =>  **same adresses**
+
+* A (singleton) B (singleton) => same adresses
+* A (prototype) B (prototype) => different adresses
+* A (prototype) B (singleton) => A different, B same
+* A (singleton) B (prototype) =>  **same adresses**
 	- this issue can be solved by adding proxy to the prototype such as follows:
+	
 ```java
-@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE, proxyMode = ScopedProxyMode.TARGET_CLASS)
+@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE,  
+       proxyMode = ScopedProxyMode.TARGET_CLASS)
 ```
 ## External Componenets 
 If you want to use componenets that are not in the same package, you need to use **@ComponenetScan(com.example.nasser)** annotation and provide it with the package.
@@ -78,10 +88,20 @@ If you want to use componenets that are not in the same package, you need to use
 ## Life Cycle
 Spring framework will make sure to destroy any component that is not being used. 
 ### What if I want to do something with the instance before destroying it?
+Use **@PreDestroy** annotation with void method.
 
-### What if you want to do somethong after all dependecy have been populated?
-Use **@PostConstruct** annotation with void method.
 ```java
 @PostConstruct  
-public void postConstruct(){}
+public void preDestroy(){
+	// do what you want here just before the bean is removed
+}
+```
+### What if you want to do somethong after all dependecy have been populated?
+Use **@PostConstruct** annotation with void method.
+
+```java
+@PostConstruct  
+public void postConstruct(){
+	// do what you want here
+}
 ```
