@@ -22,6 +22,11 @@ Add
   <groupId>org.slf4j</groupId>
   <artifactId>slf4j-api</artifactId>
 </dependency>
+
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+</dependency>
 ```
 
 In your main application:
@@ -41,4 +46,26 @@ AnnotationConfigApplicationContext applicationContext =
 * You need to colse the application context by using 
 ```java
 applicationContext.close();
+```
+* or if you are using Java7+ you can use Try bloc such as follows
+```java
+public static void main(String[] args) {
+
+    try (AnnotationConfigApplicationContext applicationContext = 
+            new AnnotationConfigApplicationContext(
+            SpringIn5StepsBasicApplication.class)) {
+
+        BinarySearchImpl binarySearch = 
+                applicationContext.getBean(BinarySearchImpl.class);
+
+        BinarySearchImpl binarySearch1 = 
+                applicationContext.getBean(BinarySearchImpl.class);
+
+        System.out.println(binarySearch);
+        System.out.println(binarySearch1);
+
+        int result = binarySearch.binarySearch(new int[] { 12, 4, 6 }, 3);
+        System.out.println(result);
+    }
+}
 ```
