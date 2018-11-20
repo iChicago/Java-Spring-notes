@@ -5,8 +5,9 @@ aims for making a software easier to maintain by grouping features and behavior 
 which all have a specific purpose and business to take care of.
 
 
-*spring-aop* can intercept calls to beans and do somethings around that. 
-*AspectJ* can do more, it can intercept change of values on a field.
+**spring-aop** can intercept calls to beans and do somethings around that. 
+
+**AspectJ** can do more, it can intercept change of values on a field.
 
 ### Cross-Cutting concerns
 This means that the concerns are not for a specific layer. They are related to all layers. Examples of cross-cutting concerns:
