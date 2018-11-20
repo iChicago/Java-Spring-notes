@@ -16,7 +16,7 @@ This means that the concerns are not for a specific layer. They are related to a
 * Performance
 ..etc
 
-*AOP is the best approach for implementing cross-cutting concerns.*
+**AOP is the best approach for implementing cross-cutting concerns.**
 
 ### How to create an aspect?
 * put **@Aspect** **@Configuration** annotation at the beginning of the aspect class.
