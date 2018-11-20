@@ -58,3 +58,25 @@ As we see from Spring Boot Starter Web, starter projects help us in quickly gett
 * spring-boot-starter-data-jpa - Spring Data JPA with Hibernate (As the ORM framework)
 * spring-boot-starter-cache - Enabling Spring Framework’s caching support
 * spring-boot-starter-data-rest - Expose Simple REST Services using Spring Data REST
+
+
+### Actuators 
+* spring-boot-starter-data-actuator - Monitor your application by reading metadate about the application. 
+For example, you want to see what are the beens thar are configured, how autoconfiguration has worked, 
+how many times a specific services has called or failed.
+```xml
+<dependency>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+
+<dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-rest-hal-browser</artifactId>
+</dependency>
+```
+To access the actuators you need to use:
+```
+localhost:8080/actuator
+```
+**Note:** If the url did't work, type **application** instead of **actuator**
