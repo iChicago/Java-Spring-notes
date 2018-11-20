@@ -98,3 +98,5 @@ public void after(JoinPoint joinPoint){
 logger.info("after execution of {}", joinPoint);
 }
 ```
+
+## Do step 7 of AOP
