@@ -49,12 +49,12 @@ Any typical web application would use all these dependencies. Spring Boot Starte
 ### Spring Boot Starter Project Options
 As we see from Spring Boot Starter Web, starter projects help us in quickly getting started with developing specific types of applications.
 
-* spring-boot-starter-web-services - SOAP Web Services
+* spring-boot-starter-web-services - SOAP (Single Object Access Protocol) Web Services
 * spring-boot-starter-web - Web & RESTful applications
 * spring-boot-starter-test - Unit testing and Integration Testing
 * spring-boot-starter-jdbc - Traditional JDBC
 * spring-boot-starter-hateoas - Add HATEOAS features to your services
 * spring-boot-starter-security - Authentication and Authorization using Spring Security
-* spring-boot-starter-data-jpa - Spring Data JPA with Hibernate
+* spring-boot-starter-data-jpa - Spring Data JPA with Hibernate (As the ORM framework)
 * spring-boot-starter-cache - Enabling Spring Framework’s caching support
 * spring-boot-starter-data-rest - Expose Simple REST Services using Spring Data REST
