@@ -20,10 +20,18 @@ This means that the concerns are not for a specific layer. They are related to a
 ### How to create an aspect?
 * put **@Aspect** **@Configuration** annotation at the beginning of the aspect class.
 * If you want to intercept before processing:
+	+ Define **Aspect**, which is a combination of:
+		- **Point-cut** what methods to intercept
+		- **Advice** what to do with the intercepted call
+		- **JoinPoin** specefic interception method
 ```java
+//The execution(....) called Point-cut
 @Before("execution(* com.example.spring.aop.springaop.business.*.*(..))")
-public void before(){
+public void before(JoinPoint joinPoint){
+	//This area called (Advice)
         //What to do with the intercepted call
+	// I want to log it
+	logger.info("Intercepted method call - {}", joinPoint);
 }
 ```
 * Your main application should implements **CommandLineRunner**
@@ -48,5 +56,44 @@ public class SpringAopApplication implements CommandLineRunner {
         logger.info(business1.calculateSomething());
         logger.info(business2.calculateSomething());
     }
+}
+```
+* **Weaver** The framework which does the entire logic of making sure that the aspects is invoked at the right point.
+* **Weaving** The process of doing that.
+
+### After Aspet
+```java
+@Aspect
+@Configuration
+public class AfterAopAspect {
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    //What kind of methods I would intercept
+    @AfterReturning(
+            value = "execution(* com.example.spring.aop.springaop.business.*.*(..))",
+            returning = "result")
+	    public void afterReturning(JoinPoint joinPoint, Object result){
+		logger.info("{} returned with value {}", joinPoint, result);
+	    }
+}
+```
+
+### Exception Aspect
+It intercepts any thrown exceptions
+```java
+@AfterThrowing(
+    value = "execution(* com.example.spring.aop.springaop.business.*.*(..))",
+    throwing = "exception")
+	public void afterThrowing(JoinPoint joinPoint, Object exception){
+	logger.info("{} throw exception {}", joinPoint, exception);
+}
+```
+
+### After Aspect
+After exection interception
+```java
+@After(value = "execution(* com.example.spring.aop.springaop.business.*.*(..))")
+public void after(JoinPoint joinPoint){
+logger.info("after execution of {}", joinPoint);
 }
 ```
