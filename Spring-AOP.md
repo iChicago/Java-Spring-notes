@@ -99,4 +99,41 @@ logger.info("after execution of {}", joinPoint);
 }
 ```
 
-## Do step 7 of AOP
+### Around Aspect
+To calculate the duration of execution
+
+### Pointcuts best practices
+* make a seperate class that hold all the pointcuts
+```java
+public class CommonJoinPointcutConfig {
+    @Pointcut("execution(* com.example.spring.aop.springaop.data.*.*(..))")
+    public void dataLayerExecution(){}
+}
+```
+* Instead of 
+```java
+@Before("execution(* com.example.spring.aop.springaop.data.*.*(..))")
+public void before(JoinPoint joinPoint){
+logger.info("Allow execution for {}", joinPoint);
+}
+```
+* Use the refrence
+remember to put brakets in **dataLayerExecution()**
+```java
+@Before("com.example.spring.aop.springaop.aspect.CommonJoinPointcutConfig.dataLayerExecution()")
+public void before(JoinPoint joinPoint){
+logger.info("Allow execution for {}", joinPoint);
+}
+```
+* You can do the samething for all layers togither.
+```java
+@Pointcut("com.example.spring.aop.springaop.aspect.CommonJoinPointcutConfig.businessLayerExecution()" +
+            "&&" + "com.example.spring.aop.springaop.aspect.CommonJoinPointcutConfig.dataLayerExecution()")
+public void allLayerExecution(){}
+```
+* If you want to intercept only beans, you can use:
+```java
+@Pointcut("bean(*dao*)")
+public void beanContainingDao(){}
+```
+**Note** \*dao* is a regular expression
