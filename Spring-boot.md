@@ -1,5 +1,5 @@
 # Java-Spring-notes
-Some notes taken while studying Spring framework. This is not intended to be shared with others, so you might not understand what is going on. However, feel free to look at them.
+Some notes taken while studying Spring framework. 
 
 ## What is Spring framework?
 Spring framework is a dependency injection framework
